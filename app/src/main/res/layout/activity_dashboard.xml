@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F9FA">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="72dp"
+        android:clipToPadding="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- ═══ HEADER ═══ -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:background="#007BFF"
+                android:padding="20dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Selamat datang 👋"
+                        android:textColor="#CCE5FF"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/tvUserDashboard"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Pelajar"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <!-- Streak badge -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/bg_streak"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="4dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🔥"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/tvStreak"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:text="0 hari streak"
+                            android:textColor="#FFFFFF"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvAvatar"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/bg_avatar"
+                    android:gravity="center"
+                    android:text="IY"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <!-- ═══ KONTEN UTAMA ═══ -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:layout_marginTop="-24dp">
+
+                <!-- ── STATS ROW (Nilai Terbaik + Quiz Selesai) ── -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="8dp"
+                        app:cardCornerRadius="14dp"
+                        app:cardBackgroundColor="#FFFFFF"
+                        app:cardElevation="3dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical">
+                            <TextView
+                                android:id="@+id/tvStatNilai"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="-"
+                                android:textColor="#2ECC71"
+                                android:textSize="22sp"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Nilai Terbaik"
+                                android:textColor="#9E9E9E"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        app:cardCornerRadius="14dp"
+                        app:cardBackgroundColor="#FFFFFF"
+                        app:cardElevation="3dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical">
+                            <TextView
+                                android:id="@+id/tvStatTotalQuiz"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textColor="#F1C40F"
+                                android:textSize="22sp"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Quiz Selesai"
+                                android:textColor="#9E9E9E"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+                <!-- ── PROGRESS PER MATERI ── -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="Progress Materi"
+                    android:textColor="#212121"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardElevation="3dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <!-- Coding -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="12dp"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="💻 Coding"
+                                android:textColor="#424242"
+                                android:textSize="13sp" />
+                            <TextView
+                                android:id="@+id/tvProgressCoding"
+                                android:layout_width="36dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="end"
+                                android:text="-"
+                                android:textColor="#007BFF"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                        <ProgressBar
+                            android:id="@+id/pbCoding"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="8dp"
+                            android:layout_marginTop="-8dp"
+                            android:layout_marginBottom="14dp"
+                            android:max="100"
+                            android:progress="0"
+                            android:progressTint="#007BFF"
+                            android:progressBackgroundTint="#E3F2FD" />
+
+                        <!-- UI/UX -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="12dp"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="🎨 UI/UX"
+                                android:textColor="#424242"
+                                android:textSize="13sp" />
+                            <TextView
+                                android:id="@+id/tvProgressUIUX"
+                                android:layout_width="36dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="end"
+                                android:text="-"
+                                android:textColor="#9C27B0"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                        <ProgressBar
+                            android:id="@+id/pbUIUX"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="8dp"
+                            android:layout_marginTop="-8dp"
+                            android:layout_marginBottom="14dp"
+                            android:max="100"
+                            android:progress="0"
+                            android:progressTint="#9C27B0"
+                            android:progressBackgroundTint="#F3E5F5" />
+
+                        <!-- Design -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="12dp"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="🖌️ Desain Grafis"
+                                android:textColor="#424242"
+                                android:textSize="13sp" />
+                            <TextView
+                                android:id="@+id/tvProgressDesign"
+                                android:layout_width="36dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="end"
+                                android:text="-"
+                                android:textColor="#FF9800"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                        <ProgressBar
+                            android:id="@+id/pbDesign"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="8dp"
+                            android:layout_marginTop="-8dp"
+                            android:max="100"
+                            android:progress="0"
+                            android:progressTint="#FF9800"
+                            android:progressBackgroundTint="#FFF3E0" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- ── BADGE PENCAPAIAN ── -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="Pencapaian"
+                    android:textColor="#212121"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardElevation="3dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="16dp"
+                        android:gravity="center_vertical">
+
+                        <!-- Badge 1: Quiz Pertama -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+                            <TextView
+                                android:id="@+id/badgeQuizPertama"
+                                android:layout_width="44dp"
+                                android:layout_height="44dp"
+                                android:gravity="center"
+                                android:text="🎯"
+                                android:textSize="26sp"
+                                android:alpha="0.3" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:gravity="center"
+                                android:text="Quiz\nPertama"
+                                android:textColor="#9E9E9E"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+
+                        <!-- Badge 2: Nilai Sempurna -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+                            <TextView
+                                android:id="@+id/badgeNilaiSempurna"
+                                android:layout_width="44dp"
+                                android:layout_height="44dp"
+                                android:gravity="center"
+                                android:text="⭐"
+                                android:textSize="26sp"
+                                android:alpha="0.3" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:gravity="center"
+                                android:text="Nilai\nSempurna"
+                                android:textColor="#9E9E9E"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+
+                        <!-- Badge 3: Semua Materi -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+                            <TextView
+                                android:id="@+id/badgeSemuaMateri"
+                                android:layout_width="44dp"
+                                android:layout_height="44dp"
+                                android:gravity="center"
+                                android:text="📚"
+                                android:textSize="26sp"
+                                android:alpha="0.3" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:gravity="center"
+                                android:text="Semua\nMateri"
+                                android:textColor="#9E9E9E"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+
+                        <!-- Badge 4: Streak 7 Hari -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+                            <TextView
+                                android:id="@+id/badgeStreak"
+                                android:layout_width="44dp"
+                                android:layout_height="44dp"
+                                android:gravity="center"
+                                android:text="🔥"
+                                android:textSize="26sp"
+                                android:alpha="0.3" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:gravity="center"
+                                android:text="Streak\n7 Hari"
+                                android:textColor="#9E9E9E"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- ── AKTIVITAS MINGGUAN ── -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="Aktivitas Minggu Ini"
+                    android:textColor="#212121"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardElevation="3dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <!-- 7 kotak hari -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center"
+                            android:layout_marginBottom="8dp">
+
+                            <LinearLayout android:id="@+id/dayBox0" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical" android:layout_marginHorizontal="2dp">
+                                <View android:layout_width="32dp" android:layout_height="32dp" android:background="@drawable/bg_day_inactive" />
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Sen" android:textSize="9sp" android:textColor="#9E9E9E" android:layout_marginTop="3dp"/>
+                            </LinearLayout>
+                            <LinearLayout android:id="@+id/dayBox1" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical" android:layout_marginHorizontal="2dp">
+                                <View android:layout_width="32dp" android:layout_height="32dp" android:background="@drawable/bg_day_inactive" />
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Sel" android:textSize="9sp" android:textColor="#9E9E9E" android:layout_marginTop="3dp"/>
+                            </LinearLayout>
+                            <LinearLayout android:id="@+id/dayBox2" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical" android:layout_marginHorizontal="2dp">
+                                <View android:layout_width="32dp" android:layout_height="32dp" android:background="@drawable/bg_day_inactive" />
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Rab" android:textSize="9sp" android:textColor="#9E9E9E" android:layout_marginTop="3dp"/>
+                            </LinearLayout>
+                            <LinearLayout android:id="@+id/dayBox3" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical" android:layout_marginHorizontal="2dp">
+                                <View android:layout_width="32dp" android:layout_height="32dp" android:background="@drawable/bg_day_inactive" />
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Kam" android:textSize="9sp" android:textColor="#9E9E9E" android:layout_marginTop="3dp"/>
+                            </LinearLayout>
+                            <LinearLayout android:id="@+id/dayBox4" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical" android:layout_marginHorizontal="2dp">
+                                <View android:layout_width="32dp" android:layout_height="32dp" android:background="@drawable/bg_day_inactive" />
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Jum" android:textSize="9sp" android:textColor="#9E9E9E" android:layout_marginTop="3dp"/>
+                            </LinearLayout>
+                            <LinearLayout android:id="@+id/dayBox5" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical" android:layout_marginHorizontal="2dp">
+                                <View android:layout_width="32dp" android:layout_height="32dp" android:background="@drawable/bg_day_inactive" />
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Sab" android:textSize="9sp" android:textColor="#9E9E9E" android:layout_marginTop="3dp"/>
+                            </LinearLayout>
+                            <LinearLayout android:id="@+id/dayBox6" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical" android:layout_marginHorizontal="2dp">
+                                <View android:layout_width="32dp" android:layout_height="32dp" android:background="@drawable/bg_day_inactive" />
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Min" android:textSize="9sp" android:textColor="#9E9E9E" android:layout_marginTop="3dp"/>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvAktivitasInfo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="Belum ada aktivitas minggu ini"
+                            android:textColor="#9E9E9E"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- ── MENU CEPAT ── -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="Menu Cepat"
+                    android:textColor="#212121"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardMateri"
+                        android:layout_width="0dp"
+                        android:layout_height="90dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="8dp"
+                        app:cardCornerRadius="14dp"
+                        app:cardBackgroundColor="#E3F2FD"
+                        app:cardElevation="2dp">
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="📚" android:textSize="24sp" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Belajar" android:textColor="#0C447C" android:textSize="13sp" android:textStyle="bold" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/btnGoQuiz"
+                        android:layout_width="0dp"
+                        android:layout_height="90dp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        app:cardCornerRadius="14dp"
+                        app:cardBackgroundColor="#A5D6A7"
+                        app:cardElevation="2dp">
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="✏️" android:textSize="24sp" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="Latihan Quiz" android:textColor="#1B5E20" android:textSize="13sp" android:textStyle="bold" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+                <!-- ── DEADLINE ── -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="Deadline Aktif"
+                    android:textColor="#212121"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardDeadline"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:visibility="gone"
+                    app:cardCornerRadius="14dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardElevation="2dp">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="14dp" android:gravity="center_vertical">
+                        <View android:id="@+id/deadlineBar" android:layout_width="4dp" android:layout_height="44dp" android:background="#FF5252" android:layout_marginEnd="12dp" />
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                            <TextView android:id="@+id/tvDeadlineMateri" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Kerjakan Quiz: -" android:textColor="#212121" android:textSize="14sp" android:textStyle="bold" />
+                            <TextView android:id="@+id/tvDeadlineWaktu" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Sisa: 3 hari" android:textColor="#757575" android:textSize="12sp" />
+                        </LinearLayout>
+                        <TextView android:id="@+id/tvDeadlineBadge" android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="@drawable/bg_badge" android:paddingHorizontal="10dp" android:paddingVertical="4dp" android:text="3 Hari" android:textColor="#FFFFFF" android:textSize="12sp" android:textStyle="bold" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardNoDeadline"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    app:cardCornerRadius="14dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardElevation="2dp">
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="16dp" android:gravity="center" android:text="Belum ada deadline aktif.\nBuka materi untuk memulai! 📚" android:textColor="#9E9E9E" android:textSize="13sp" android:lineSpacingExtra="4dp" />
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- BOTTOM NAVBAR -->
+    <include layout="@layout/bottom_navbar" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

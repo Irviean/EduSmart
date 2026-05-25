@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="blue_header">#007BFF</color>
+    <color name="blue_main">#007BFF</color> <color name="blue_card_light">#9AD9F1</color>
+
+    <color name="bg_light">#F8F9FA</color>
+    <color name="green_soft">#A5D6A7</color>
+    <color name="orange_soft">#FFCC80</color>
+    <color name="red_deadline">#FF5252</color>
+
+    <color name="text_dark">#212121</color>
+    <color name="text_black">#000000</color> <color name="text_blue_dim">#1976D2</color>
+</resources>
